@@ -4,15 +4,16 @@ set $alt Mod1
 set $term foot
 set $menu-run wofi --show run
 set $menu-drun wofi --show drun
+set $notify dunstify
 set $in-gaps 10
 set $out-gaps 5
 
 set $format '%Y-%m-%d--%H-%M-%S'
-set $psf "/home/tricky/pics/$(date +$format).png"
-set $ps1 Print
-set $ps2 $ps1+Alt
-set $ps3 $ps1+Control
-set $ps4 $ps1+Control+Alt
+set $psf "$HOME/pics/$(date +$format).png"
+set $ps Print
+set $ps_part $ps+Shift
+set $ps_clip $ps+Control
+set $ps_part_clip $ps+Control+Shift
 
 output * resolution 1920x1080 scale 1
 
@@ -51,11 +52,11 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'Kill wayland session?' -B 'Yes'
 bindsym $mod+d exec $menu-drun
 bindsym $mod+Shift+d exec $menu-run
 # Save screenshot to file
-bindsym $ps1 exec grim $psf && dunstify "Took screenshot"
-bindsym $ps2 exec grim -g "$(slurp)" $psf && dunstify "Took screenshot"
-# Copy screenshot to clipboard (broken atm)
-bindsym $ps3 exec grim - | wl-copy && dunstify "Copied to clipboard"
-bindsym $ps4 exec grim -g "$(slurp)" - | wl-copy && dunstify "Copied to clipboard"
+bindsym $ps exec grim $psf && $notify "Took screenshot"
+bindsym $ps_part exec grim -g "$(slurp)" $psf && $notify "Took screenshot"
+# Copy screenshot to clipboard
+bindsym $ps_clip exec grim - | wl-copy && $notify "Copied to clipboard"
+bindsym $ps_part_clip exec grim -g "$(slurp)" - | wl-copy && $notify "Copied to clipboard"
 # playerctl
 bindsym $mod+Ctrl+Left exec playerctl prev
 bindsym $mod+Ctrl+Right exec playerctl next
