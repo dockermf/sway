@@ -9,7 +9,7 @@ confirm() {
 }
 
 notify() {
-    notify-send $@
+    notify-send "$@"
 }
 
 open_menu() {
