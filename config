@@ -4,7 +4,7 @@ set $alt Mod1
 set $term foot
 set $menu-run wofi --show run
 set $menu-drun wofi --show drun
-set $notify dunstify
+set $notify notify-send
 set $in-gaps 10
 set $out-gaps 5
 
@@ -48,6 +48,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'Kill wayland session?' -B 'Yes' 'swaymsg exit'
+bindsym $mod+p exec $HOME/.config/sway/scripts/powermenu
 # Launchers
 bindsym $mod+d exec $menu-drun
 bindsym $mod+Shift+d exec $menu-run
