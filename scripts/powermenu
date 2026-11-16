@@ -8,10 +8,6 @@ confirm() {
     [[ $answer == "yes" ]] && return 0 || return 1
 }
 
-notify() {
-    notify-send "$@"
-}
-
 open_menu() {
     opts='poweroff\nreboot\nsuspend'
     choice=$(printf $opts | $woficmd -p 'Power menu')
@@ -21,22 +17,16 @@ open_menu() {
     case $choice in
         'poweroff')
             if confirm; then
-                notify "Powering off"
-                sleep 2
                 systemctl poweroff
             fi
             ;;
         'reboot')
             if confirm; then
-                notify "Rebooting"
-                sleep 2
                 systemctl reboot
             fi
             ;;
         'suspend')
             if confirm; then
-                notify "Suspending"
-                sleep 2
                 systemctl suspend
             fi
             ;;
