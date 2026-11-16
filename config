@@ -53,11 +53,11 @@ bindsym $mod+p exec $HOME/.config/sway/scripts/powermenu
 bindsym $mod+d exec $menu-drun
 bindsym $mod+Shift+d exec $menu-run
 # Save screenshot to file
-bindsym $ps exec grim $psf && $notify "Took screenshot"
-bindsym $ps_part exec grim -g "$(slurp)" $psf && $notify "Took screenshot"
+bindsym $ps exec grim $psf && $notify "Screenshot" "Saved at $psf"
+bindsym $ps_part exec grim -g "$(slurp)" $psf && $notify "Screenshot" "Saved at $psf"
 # Copy screenshot to clipboard
-bindsym $ps_clip exec grim - | wl-copy && $notify "Copied to clipboard"
-bindsym $ps_part_clip exec grim -g "$(slurp)" - | wl-copy && $notify "Copied to clipboard"
+bindsym $ps_clip exec grim - | wl-copy && $notify "Screenshot" "Copied to clipboard"
+bindsym $ps_part_clip exec grim -g "$(slurp)" - | wl-copy && $notify "Screenshot" "Copied to clipboard"
 # playerctl
 bindsym $mod+Ctrl+Left exec playerctl prev
 bindsym $mod+Ctrl+Right exec playerctl next
