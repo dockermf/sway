@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Updates systemd user env so that units see this shit
+systemctl --user import-environment DISPLAY WAYLAND_DISPLAY
+#dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY
+dbus-update-activation-environment --systemd --all

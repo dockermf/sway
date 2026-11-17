@@ -156,7 +156,7 @@ bar {
 for_window [ shell="xwayland" ] title_format "[XWayland] %title"
 
 # Fixes units not seeing X|Wayland display envs
-exec ~/.local/bin/import-env
+exec ~/.config/sway/scripts/import-env
 exec playerctld daemon
 
 # TODO: redo with systemd unit
