@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# take care of duplicate processes
+if pgrep -fx 'gammastep -xPO 4200K'; then
+    pkill -f 'gammastep -xPO 4200K'
+fi
+
+gammastep -xPO 4200K

@@ -160,5 +160,5 @@ exec ~/.config/sway/scripts/import-env
 exec playerctld daemon
 
 # TODO: redo with systemd unit
-exec_always gammastep -xPO 4200K
+exec_always ~/.config/sway/scripts/start-gammastep
 exec_always pkill swaybg && swaybg -i ~/pics/wallpaper/monke.jpg
